@@ -49,10 +49,10 @@ namespace HW3part2_simpleCalculator_
                         break;
                 }
                 answer = getOperand.AskContinue();
-
-            }while(answer == "y" || answer == "Yes" || answer == "Y" || answer == "yes");
-            Console.Clear();
-            Console.ReadKey();
+                Console.Clear();
+                Console.ReadKey();
+            } while(answer == "y" || answer == "Yes" || answer == "Y" || answer == "yes");
+            
         }
 }
 }
