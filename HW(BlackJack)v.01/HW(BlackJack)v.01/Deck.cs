@@ -3,99 +3,115 @@ using System.Collections.Generic;
 
 namespace HW_BlackJack_v._01
 {
-    public class Card
-
-    {
-        public enum Suites
-        {
-            Hearts = 0,
-            Diamonds,
-            Clubs,
-            Spades
-        }
-
-        public int Value
-        {
-            get;
-            set;
-        }
-
-        public Suites Suite
-        {
-            get;
-            set;
-        }
-
-        //Used to get full name, also useful 
-        //if you want to just get the named value
-        public string NamedValue
-        {
-            get
-            {
-                string name = string.Empty;
-                switch (Value)
-                {
-                    case (14):
-                        name = "Ace";
-                        break;
-                    case (13):
-                        name = "King";
-                        break;
-                    case (12):
-                        name = "Queen";
-                        break;
-                    case (11):
-                        name = "Jack";
-                        break;
-                    default:
-                        name = Value.ToString();
-                        break;
-                }
-
-                return name;
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return NamedValue + " of  " + Suite.ToString();
-            }
-        }
-
-        public Card(int Value, Suites Suite)
-        {
-            this.Value = Value;
-            this.Suite = Suite;
-        }
-    }
-
+   
+    
     public class Deck
     {
-        public List<Card> Cards = new List<Card>();
-        public void FillDeck()
+        private System.Collections.ArrayList deck;
+        publick Deck()
         {
-            void FillDeck()
-            {
-                //Can use a single loop utilising the mod operator % and Math.Floor
-                //Using divition based on 13 cards in a suited
-                for (int i = 0; i < 52; i++)
-                {
-                    Card.Suites suite = (Card.Suites)(Math.Floor((decimal)i / 13));
-                    //Add 2 to value as a cards start a 2
-                    int val = i % 13 + 2;
-                    Cards.Add(new Card(val, suite));
-                }
-            }
+            buildDeck();
         }
 
-        public void PrintDeck()
+        public Card get_Renamed(int index)
         {
-            foreach (Card card in this.Cards)
+            if (index < deck.Count)
             {
-                Console.WriteLine(card.Name);
+                return (Card)deck[index];
             }
+            return null;
         }
-    }
+        public void replace(int index, Card card)
+        {
+            deck[index] = card;
+        }
+        public int size()
+        {
+            return deck.Count;
+        }
+        public Card removeFromFront()
+        {
+            if (deck.Count > 0)
+            {
+                Object tempObject;
+                tempObject = deck[0];
+                deck.RemoveAt(0);
+                Card card = (Card)tempObject;
+                return card;
+            }
+            return null;
+        }
+
+        public void returnToBack()
+        {
+            deck.add(Card);
+        }
+
+    
+        private void buildDeck()
+        {
+
+            deck = new System.Collections.ArrayList();
+
+            deck.Add(new Card(Card.CLUBS, Card.TWO));
+            deck.Add(new Card(Card.CLUBS, Card.THREE));
+            deck.Add(new Card(Card.CLUBS, Card.FOUR));
+            deck.Add(new Card(Card.CLUBS, Card.FIVE));
+            deck.Add(new Card(Card.CLUBS, Card.SIX));
+            deck.Add(new Card(Card.CLUBS, Card.SEVEN));
+            deck.Add(new Card(Card.CLUBS, Card.EIGHT));
+            deck.Add(new Card(Card.CLUBS, Card.NINE))
+            deck.Add(new Card(Card.CLUBS, Card.TEN));
+            deck.Add(new Card(Card.CLUBS, Card.JACK));
+            deck.Add(new Card(Card.CLUBS, Card.QUEEN));
+            deck.Add(new Card(Card.CLUBS, Card.KING));
+            deck.Add(new Card(Card.CLUBS, Card.ACE));
+
+            deck.Add(new Card(Card.SPADES, Card.TWO));
+            deck.Add(new Card(Card.SPADES, Card.THREE));
+            deck.Add(new Card(Card.SPADES, Card.FOUR));
+            deck.Add(new Card(Card.SPADES, Card.FIVE));
+            deck.Add(new Card(Card.SPADES, Card.SIX));
+            deck.Add(new Card(Card.SPADES, Card.SEVEN));
+            deck.Add(new Card(Card.SPADES, Card.EIGHT));
+            deck.Add(new Card(Card.SPADES, Card.NINE))
+            deck.Add(new Card(Card.SPADES, Card.TEN));
+            deck.Add(new Card(Card.SPADES, Card.JACK));
+            deck.Add(new Card(Card.SPADES, Card.QUEEN));
+            deck.Add(new Card(Card.SPADES, Card.KING));
+            deck.Add(new Card(Card.SPADES, Card.ACE));
+
+            deck.Add(new Card(Card.HEARTS, Card.TWO));
+            deck.Add(new Card(Card.HEARTS, Card.THREE));
+            deck.Add(new Card(Card.HEARTS, Card.FOUR));
+            deck.Add(new Card(Card.HEARTS, Card.FIVE));
+            deck.Add(new Card(Card.HEARTS, Card.SIX));
+            deck.Add(new Card(Card.HEARTS, Card.SEVEN));
+            deck.Add(new Card(Card.HEARTS, Card.EIGHT));
+            deck.Add(new Card(Card.HEARTS, Card.NINE))
+            deck.Add(new Card(Card.HEARTS, Card.TEN));
+            deck.Add(new Card(Card.HEARTS, Card.JACK));
+            deck.Add(new Card(Card.HEARTS, Card.QUEEN));
+            deck.Add(new Card(Card.HEARTS, Card.KING));
+            deck.Add(new Card(Card.HEARTS, Card.ACE));
+
+            deck.Add(new Card(Card.DIAMONDS, Card.TWO));
+            deck.Add(new Card(Card.DIAMONDS, Card.THREE));
+            deck.Add(new Card(Card.DIAMONDS, Card.FOUR));
+            deck.Add(new Card(Card.DIAMONDS, Card.FIVE));
+            deck.Add(new Card(Card.DIAMONDS, Card.SIX));
+            deck.Add(new Card(Card.DIAMONDS, Card.SEVEN));
+            deck.Add(new Card(Card.DIAMONDS, Card.EIGHT));
+            deck.Add(new Card(Card.DIAMONDS, Card.NINE))
+            deck.Add(new Card(Card.DIAMONDS, Card.TEN));
+            deck.Add(new Card(Card.DIAMONDS, Card.JACK));
+            deck.Add(new Card(Card.DIAMONDS, Card.QUEEN));
+            deck.Add(new Card(Card.DIAMONDS, Card.KING));
+            deck.Add(new Card(Card.DIAMONDS, Card.ACE));
+
+        }
+
+        
+        
+     }
 }

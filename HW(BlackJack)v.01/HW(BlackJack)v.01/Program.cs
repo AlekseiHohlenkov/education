@@ -4,9 +4,12 @@ namespace HW_BlackJack_v._01
 {
     class Program
     {
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Deck deck = new Deck();
+            Computer computer = new Computer(deck);
+            computer.shuffle();
+            Console.WriteLine(deck);
         }
     }
 }
